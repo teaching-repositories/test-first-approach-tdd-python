@@ -17,19 +17,57 @@ By starting with a simple functional interface in this introductory example, we 
 
 The feedback loop of making tests pass guides the paradigm and design into something that fits the problem, rather than trying to fit the problem to an initial choice. This balance enables writing clean, maintainable code.
 
+
 ## The process
+
+### Organizing Tests
+
+For this tutorial, we will one test file for each operation, each containing a class that tests a specific capability of our calculator module. 
+
+For example:
+
+- `test_addition.py` - Contains `TestAddition` class
+- `test_subtraction.py` - Contains `TestSubtraction` class
+
+This keeps our tests focused and modular. Each test file tests one aspect of the system.
+
+We can then aggregate the test classes into a test suite in `all_tests.py`:
+
+```python
+import unittest
+from test_addition import TestAddition 
+from test_subtraction import TestSubtraction
+
+# Additional imports as test classes are added
+
+if __name__ == '__main__':
+   unittest.main()
+```
+
+Running `all_tests.py` will execute all our test classes, verifying the full system.
+
+This structure demonstrates good testing practices:
+
+- Individual test classes keep tests isolated and focused 
+- The test suite provides overall coverage
+- New test classes can be easily added
+
+This approach will be used for the tutorial to showcase robust test organization.
+
+The full implementation can be viewed in the GitHub https://github.com/teaching-repositories/test-first-approach-tdd-python.git repository. 
+
 
 ### First iteration
 
-First, let's write a failing test. Create a file called `test_calculator.py` and copy the following. We are creating a `TestCalculator` class that inherits from `unittest.TestCase`. 
+First, let's write a failing test. Create a file called `test_addition.py` and copy the following. We are creating a `TestAddition` class that inherits from `unittest.TestCase`. 
 
 We will structure our test cases using the AAA pattern - Arrange, Act, Assert. The Arrange section sets up objects and inputs needed for the test. The Act section executes the code being tested. The Assert section verifies the expected results.
 
 In Python, we define a class using the `class` keyword followed by the class name. 
 
-Here our class is called `TestCalculator`. By convention, test classes are often named starting with Test.
+Here our class is called `TestAddition`. By convention, test classes are often named starting with Test.
 
-`(unittest.TestCase)` means the `TestCalculator` class inherits from the `TestCase` class defined in the `unittest` module. This gives our test class access to useful testing functions like `assertEqual()`.
+`(unittest.TestCase)` means the `TestAddition` class inherits from the `TestCase` class defined in the `unittest` module. This gives our test class access to useful testing functions like `assertEqual()`.
 
 We don't need to understand inheritance and objects yet. For now, know that defining a class like this allows grouping related test functions together, while `TestCase` provides test-specific utilities.
 
@@ -42,7 +80,7 @@ import unittest
 
 class TestCalculator(unittest.TestCase):
 
-  def test_add_two_numbers(self):
+  def test_add_integers(self):
     # Arrange
     num1 = 5
     num2 = 3
@@ -87,7 +125,7 @@ def add(num1, num2):
 
 class TestCalculator(unittest.TestCase):
 
-  def test_add_two_numbers(self):
+  def test_add_integers(self):
     # Arrange
     num1 = 5
     num2 = 3
@@ -139,7 +177,7 @@ In TDD, test cases are written incrementally as part of the red-green-refactor c
 Here is our next failing test. I have only included the relevant test code to make it easier to see the new test.
 
 ```python 
-def test_add_two_numbers(self):
+def test_add_integers(self):
   # Arrange
   num1 = 5 
   num2 = 3
@@ -175,7 +213,7 @@ def add(num1, num2):
 
 class TestCalculator(unittest.TestCase):
 
-    def test_add_two_numbers(self):
+    def test_add_integers(self):
       # Arrange
       num1 = 5 
       num2 = 3
@@ -223,7 +261,7 @@ from calculator import add
 
 class TestCalculator(unittest.TestCase):
 
-    def test_add_two_numbers(self):
+    def test_add_integers(self):
       # Arrange
       num1 = 5 
       num2 = 3
@@ -275,7 +313,7 @@ from calculator import add
 
 class TestCalculator(unittest.TestCase):
 
-    def test_add_two_numbers(self):
+    def test_add_integers(self):
       # Arrange
       num1 = 5 
       num2 = 3
