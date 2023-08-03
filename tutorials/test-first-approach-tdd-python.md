@@ -1,6 +1,19 @@
 ---
 title: The Test-First Approach - Implementing TDD in Python
-format: pdf
+subtitle: All code is guilty untill proven innocent!
+format:
+    pdf:
+      toc: true
+      number-sections: true
+      colorlinks: true
+    docx:
+      toc: true
+      number-sections: false
+      highlight-style: github
+    html:
+      toc: true
+      toc-expand: 2
+      embed-resources: true
 ---
 
 ## Introduction
@@ -16,7 +29,6 @@ However, TDD does not forbid some initial assumptions to scaffold the process, a
 By starting with a simple functional interface in this introductory example, we aim to demonstrate the purer outside-in approach. But we recognise that pragmatic hybrid styles are also valid and may be better suited depending on the context. The goal is to avoid overly rigid upfront design while utilising tests to enable iterative refinement. 
 
 The feedback loop of making tests pass guides the paradigm and design into something that fits the problem, rather than trying to fit the problem to an initial choice. This balance enables writing clean, maintainable code.
-
 
 ## The process
 
