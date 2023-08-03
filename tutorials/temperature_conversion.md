@@ -5,7 +5,7 @@ format: pdf
 
 Here is an outline of the TDD process in Python to test temperature conversion functions:
 
-1. Write a test case for a Celsius to Fahrenheit conversion:
+1. Write a test case for a Celsius to Fahrenheit conversion.  We will structure our test cases using the Arrange-Act-Assert pattern:
 
 ```python
 import unittest
@@ -13,9 +13,15 @@ import unittest
 class TestTemperatureConverter(unittest.TestCase):
 
     def test_celsius_to_fahrenheit(self):
+
+        # Arrange
         celsius = 0
         expected = 32
+
+        # Act
         actual = celsius_to_fahrenheit(celsius)
+
+        # Assert
         self.assertEqual(expected, actual)
 ```
 
@@ -34,9 +40,15 @@ def celsius_to_fahrenheit(celsius):
 
 ```python 
     def test_fahrenheit_to_celsius(self):
+
+        # Arrange
         fahrenheit = 32
         expected = 0
+
+        # Act
         actual = fahrenheit_to_celsius(fahrenheit)
+
+        # Assert
         self.assertEqual(expected, actual)
 ```
 
