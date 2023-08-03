@@ -4,11 +4,9 @@ subtitle: All code is guilty untill proven innocent!
 format:
     pdf:
       toc: true
-      number-sections: true
       colorlinks: true
     docx:
       toc: true
-      number-sections: false
       highlight-style: github
     html:
       toc: true
