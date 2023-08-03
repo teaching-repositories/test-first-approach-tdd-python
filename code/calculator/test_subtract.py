@@ -30,18 +30,24 @@ class TestSubtract(unittest.TestCase):
         str1 = "Hello"
         num2 = 2
 
-        # Act & Assert
-        with self.assertRaises(TypeError):
+        # Act 
+        def action():
             subtract(str1, num2)
+
+        # Assert
+        self.assertRaises(TypeError, action)
 
     def test_subtract_string_string_error(self):
         # Arrange
         str1 = "Hello"
         str2 = " World"
 
-        # Act & Assert
-        with self.assertRaises(TypeError):
+        # Act 
+        def action():
             subtract(str1, str2)
+
+        # Assert
+        self.assertRaises(TypeError, action)
 
 if __name__ == "__main__":
     unittest.main()

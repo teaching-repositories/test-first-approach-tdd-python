@@ -41,9 +41,12 @@ class TestMultiply(unittest.TestCase):
         str1 = "Hello"
         str2 = " World"
 
-        # Act & Assert
-        with self.assertRaises(TypeError):
+        # Act
+        def action():
             multiply(str1, str2)
+
+        # Assert
+        self.assertRaises(TypeError, action)
 
 if __name__ == "__main__":
     unittest.main()

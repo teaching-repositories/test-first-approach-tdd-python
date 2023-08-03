@@ -50,9 +50,13 @@ class TestAdd(unittest.TestCase):
         num1 = "two"
         num2 = 2
 
-        # Act & Assert
-        with self.assertRaises(TypeError):
+        # Act 
+        def action():
             add(num1, num2)
+
+        # Assert
+        self.assertRaises(TypeError, action)
+            
 
     def test_add_string_concatenation(self):
         # Arrange
@@ -66,5 +70,5 @@ class TestAdd(unittest.TestCase):
         self.assertEqual(result, "Hello World")    
     
  
-if __name__ == "__main__":
+if __name__ == "__mßain__":
     unittest.main()

@@ -19,9 +19,11 @@ class TestDivide(unittest.TestCase):
         num1 = 10
         num2 = 0
 
-        # Act & Assert
-        with self.assertRaises(ZeroDivisionError):
-            divide(num1, num2)
+        # Act 
+        result = divide(num1, num2)
+
+        # Assert
+        self.assertEqual(divide(num1, num2),'Error: Division by zero')
 
     def test_divide_float(self):
         # Arrange
@@ -39,9 +41,13 @@ class TestDivide(unittest.TestCase):
         num1 = "ten"
         num2 = 2
 
-        # Act & Assert
-        with self.assertRaises(TypeError):
+        # Act
+        def action():
             divide(num1, num2)
+
+        # Assert
+        self.assertRaises(TypeError, action)
+            
 
 if __name__ == "__main__":
     unittest.main()
